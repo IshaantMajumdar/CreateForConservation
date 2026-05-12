@@ -1,0 +1,502 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<title>Create for Conservation — Back Soon</title>
+	<link rel="icon" type="image/png" href="assets/css/images/C4C_Logo_no_words.png" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400&family=Open+Sans:ital,wght@0,300;0,600;0,800;1,300&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+	<style>
+		/* ── Reset ── */
+		*, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; border: 0; }
+		ol, ul { list-style: none; }
+
+		/* ── Site tokens (from main.css) ── */
+		:root {
+			--bg:     #faf3dd;
+			--dark:   #29334d;
+			--pink:   #dd80ab;
+			--pink-h: #e99ec0;
+			--pink-a: #d5669c;
+			--cream:  #e8c9a2;
+			--white:  #ffffff;
+			--muted:  #aaa;
+			--border: #eee;
+		}
+
+		html { box-sizing: border-box; }
+
+		/* ── Body — matches main.css exactly ── */
+		html, body { height: 100%; }
+
+		body {
+			background-image: linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0)), url("assets/css/images/bg01.png");
+			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0)), url("assets/css/images/bg01.png");
+			background-color: var(--bg);
+			background-position: top left, top left;
+			background-repeat: repeat-x, repeat;
+			background-size: 100% 30em, auto;
+			font-family: 'Open Sans', sans-serif;
+			font-size: 13pt;
+			color: var(--dark);
+			font-weight: 300;
+			line-height: 2.25em;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+		}
+
+		a { color: var(--pink); text-decoration: underline; }
+		a:hover { text-decoration: none; }
+
+		h2 {
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 800;
+			color: var(--dark);
+			font-size: 2.25em;
+			line-height: 1em;
+			margin: 0 0 0.6em 0;
+		}
+
+		h3 {
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 800;
+			color: var(--dark);
+			font-size: 1.35em;
+			margin: 0 0 1em 0;
+		}
+
+		p { margin-bottom: 1em; }
+		p:last-child { margin-bottom: 0; }
+
+		/* ── Container ── */
+		.container {
+			margin: 0 auto;
+			max-width: 100%;
+			width: 1400px;
+		}
+
+		/* ── Header wrapper ── */
+		#header-wrapper {
+			padding: 4.5em 0 3em 0;
+		}
+
+		#header {
+			position: relative;
+			padding: 0 2em;
+		}
+
+		#logo { display: inline-block; }
+
+		#logo img {
+			max-width: 180px;
+			height: auto;
+		}
+
+		/* ── Main white section ── */
+		#main-wrapper {
+			flex: 1;
+			background: var(--white);
+			box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.05);
+			padding: 5em 0;
+		}
+
+		/* ── Centered maintenance card ── */
+		.maintenance-center {
+			display: flex;
+			justify-content: center;
+			padding: 1em 2em 2em;
+		}
+
+		.box {
+			background: var(--white);
+			border-radius: 6px;
+			box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.05);
+			padding: 3em 3em 3.5em;
+			max-width: 640px;
+			width: 100%;
+			text-align: center;
+		}
+
+		/* ── Leaf animation ── */
+		.leaves {
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			gap: 6px;
+			margin-bottom: 1.5em;
+		}
+
+		.leaf-a { animation: float 3.2s ease-in-out infinite; }
+		.leaf-b { animation: float 3.2s ease-in-out 0.5s infinite; }
+		.leaf-c { animation: float 3.2s ease-in-out 1.0s infinite; }
+
+		@keyframes float {
+			0%, 100% { transform: translateY(0); }
+			50%       { transform: translateY(-10px); }
+		}
+
+		/* ── Pink badge — uses site button styling ── */
+		.badge {
+			display: inline-block;
+			background: var(--pink);
+			color: var(--cream);
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 800;
+			font-size: 0.6em;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			padding: 0.3em 1.1em;
+			border-radius: 6px;
+			margin-bottom: 1.1em;
+		}
+
+		/* ── Body copy ── */
+		.box p {
+			font-size: 0.9em;
+			color: var(--dark);
+			opacity: 0.7;
+			line-height: 2.25em;
+			max-width: 460px;
+			margin: 0 auto 0.75em;
+		}
+
+		/* ── Pulsing dots ── */
+		.dots {
+			display: flex;
+			justify-content: center;
+			gap: 8px;
+			margin: 1.25em 0 2em;
+		}
+
+		.dot {
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: var(--pink);
+			animation: pulse 1.6s ease-in-out infinite;
+		}
+		.dot:nth-child(2) { animation-delay: 0.28s; }
+		.dot:nth-child(3) { animation-delay: 0.56s; }
+
+		@keyframes pulse {
+			0%, 100% { opacity: 0.2; transform: scale(0.8); }
+			50%       { opacity: 1;   transform: scale(1); }
+		}
+
+		/* ── Divider ── */
+		hr.rule {
+			border: none;
+			border-top: solid 1px var(--border);
+			margin: 0 0 2em;
+		}
+
+		/* ── Contact block ── */
+		.contact-label {
+			font-size: 0.65em;
+			font-weight: 800;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: var(--dark);
+			opacity: 0.45;
+			display: block;
+			margin-bottom: 0.4em;
+		}
+
+		.contact-email {
+			display: inline-block;
+			font-size: 0.85em;
+			font-weight: 600;
+			color: var(--pink);
+			text-decoration: none;
+			margin-bottom: 1.75em;
+			transition: color 0.25s ease-in-out;
+		}
+		.contact-email:hover { color: var(--pink-h); text-decoration: none; }
+
+		/* ── Social icons — matches site .widget.contact ul li a exactly ── */
+		.social-list {
+			list-style: none;
+			padding-left: 0;
+			display: flex;
+			justify-content: center;
+			gap: 0.3em;
+			margin: 0;
+		}
+
+		.social-list li { padding: 0; }
+
+		.social-list li a {
+			-webkit-transition: background-color .25s ease-in-out;
+			transition: background-color .25s ease-in-out;
+			display: inline-block;
+			width: 2.5em;
+			height: 2.5em;
+			text-align: center;
+			line-height: 2.5em;
+			border-radius: 0.35em;
+			outline: 0;
+			opacity: 0.75;
+			text-decoration: none;
+			background: var(--dark);
+		}
+
+		.social-list li a:before {
+			color: var(--cream);
+			font-size: 1.5em;
+			line-height: inherit;
+		}
+
+		.social-list li a:hover { background: #3a4666; opacity: 1; }
+		.social-list li a:active { background: #4a5a80; }
+
+		/* ── Footer wrapper ── */
+		#footer-wrapper {
+			padding: 6em 0 8em 0;
+		}
+
+		#footer { margin-top: 0; }
+
+		#footer a { color: inherit; }
+
+		/* ── .widget.contact — exact from main.css ── */
+		.widget.contact ul {
+			list-style: none;
+			padding-left: 0;
+			overflow: hidden;
+			position: relative;
+			left: -4px;
+			top: 4px;
+			margin-bottom: 1.5em;
+			display: flex;
+			gap: 0.25em;
+		}
+
+		.widget.contact ul li { padding: 0; }
+
+		.widget.contact ul li a {
+			-webkit-transition: background-color .25s ease-in-out;
+			transition: background-color .25s ease-in-out;
+			display: inline-block;
+			width: 2.5em;
+			height: 2.5em;
+			text-align: center;
+			line-height: 2.5em;
+			border-radius: 0.35em;
+			outline: 0;
+			opacity: 0.75;
+			text-decoration: none;
+			background: var(--dark);
+		}
+
+		.widget.contact ul li a:before {
+			color: var(--cream);
+			font-size: 1.5em;
+			line-height: inherit;
+		}
+
+		.widget.contact ul li a:hover { background: #3a4666; }
+		.widget.contact ul li a:active { background: #4a5a80; }
+
+		.widget.contact p {
+			font-size: 0.9em;
+			line-height: 2em;
+		}
+
+		/* ── Icon helpers ── */
+		.icon:before {
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			display: inline-block;
+			font-style: normal;
+			font-variant: normal;
+			text-rendering: auto;
+			line-height: 1;
+			text-transform: none !important;
+			font-family: 'Font Awesome 5 Free';
+			font-weight: 400;
+		}
+		.icon:before { line-height: inherit; }
+		.icon.solid:before { font-weight: 900; }
+		.icon.brands:before { font-family: 'Font Awesome 5 Brands'; }
+		.icon > .label { display: none; }
+
+		/* ── Copyright ── */
+		#copyright {
+			color: var(--muted);
+			padding: 4em 0 0 0;
+			text-align: center;
+		}
+
+		#copyright a { color: inherit; }
+
+		#copyright ul.menu {
+			list-style: none;
+			padding-left: 0;
+		}
+
+		#copyright ul.menu li {
+			border-left: solid 1px #e0e0e0;
+			display: inline-block;
+			padding: 0 0 0 0.75em;
+			margin: 0 0 0 0.75em;
+		}
+
+		#copyright ul.menu li:first-child {
+			border-left: 0;
+			margin-left: 0;
+			padding-left: 0;
+		}
+
+		/* ── Row/col helpers (minimal) ── */
+		.row {
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: -40px;
+			margin-left: -40px;
+		}
+
+		.row > * {
+			box-sizing: border-box;
+			padding: 40px 0 0 40px;
+		}
+
+		.col-12 { width: 100%; }
+
+		/* ── Responsive ── */
+		@media screen and (max-width: 1680px) { .container { width: 1200px; } body { font-size: 12pt; } }
+		@media screen and (max-width: 1280px) { .container { width: 960px; }  body { font-size: 11pt; } }
+
+		@media screen and (max-width: 980px) {
+			.container { width: 90%; }
+			body { font-size: 11pt; }
+			#header-wrapper { padding: 3em 0 1.5em 0; text-align: center; }
+			#footer-wrapper { padding: 6em 0 4em 0; }
+			.box { padding: 2.5em 1.75em; }
+		}
+
+		@media screen and (max-width: 736px) {
+			.container { width: 100%; }
+			body { line-height: 2em; }
+			#header-wrapper { padding: 3em 0 1.5em 0; }
+			#main-wrapper  { padding: 40px 30px; }
+			#footer-wrapper { padding: 40px 30px; }
+			.box { padding: 2em 1.25em; }
+			h2 { font-size: 1.75em; }
+			#copyright { text-align: left; }
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Header -->
+	<div id="header-wrapper">
+		<header id="header" class="container">
+			<div id="logo">
+				<a href="#"><img src="assets/css/images/C4C_Logo.png" alt="Create for Conservation" /></a>
+			</div>
+		</header>
+	</div>
+
+	<!-- Main -->
+	<div id="main-wrapper">
+		<div class="container">
+			<div class="maintenance-center">
+				<div class="box">
+
+					<!-- Animated leaves in site brand colors -->
+					<div class="leaves">
+						<svg class="leaf-b" width="22" height="27" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M11 2C11 2 3 8 3 16C3 21.8 6.9 26 11 26C15.1 26 19 21.8 19 16C19 8 11 2 11 2Z" fill="#dd80ab" opacity="0.4"/>
+							<line x1="11" y1="25.5" x2="11" y2="12" stroke="#dd80ab" stroke-width="1.2" stroke-linecap="round"/>
+						</svg>
+						<svg class="leaf-a" width="30" height="34" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M15 2C15 2 4 9 4 19C4 26.2 9 32 15 32C21 32 26 26.2 26 19C26 9 15 2 15 2Z" fill="#29334d" opacity="0.65"/>
+							<line x1="15" y1="31.5" x2="15" y2="15" stroke="#29334d" stroke-width="1.6" stroke-linecap="round"/>
+						</svg>
+						<svg class="leaf-c" width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10 2C10 2 3 7.5 3 14.5C3 19.8 6.1 23.5 10 23.5C13.9 23.5 17 19.8 17 14.5C17 7.5 10 2 10 2Z" fill="#dd80ab" opacity="0.25"/>
+							<line x1="10" y1="23" x2="10" y2="11" stroke="#dd80ab" stroke-width="1.1" stroke-linecap="round"/>
+						</svg>
+					</div>
+
+					<span class="badge">Temporarily Offline</span>
+
+					<h2>We'll be back soon</h2>
+
+					<p>Our website is currently down for a little maintenance. We're working hard to get everything back up and running — thank you for your patience!</p>
+					<p>In the meantime, feel free to reach out or follow us on social media for updates.</p>
+
+					<div class="dots">
+						<span class="dot"></span>
+						<span class="dot"></span>
+						<span class="dot"></span>
+					</div>
+
+					<hr class="rule" />
+
+					<span class="contact-label">Questions? Get in touch</span>
+					<a class="contact-email" href="mailto:info@createforconservation.org">info@createforconservation.org</a>
+
+					<br />
+
+					<ul class="social-list">
+						<li>
+							<a href="https://www.facebook.com/share/1ZognSVCh6/?mibextid=wwXIfr" class="icon brands fa-facebook-f">
+								<span class="label">Facebook</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/create4orconservation/" class="icon brands fa-instagram">
+								<span class="label">Instagram</span>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer — identical structure to main site -->
+	<div id="footer-wrapper">
+		<footer id="footer" class="container">
+			<div class="row">
+				<div class="col-12">
+					<section class="widget contact last">
+						<h3>Contact Us</h3>
+						<ul>
+							<li>
+								<a href="https://www.facebook.com/share/1ZognSVCh6/?mibextid=wwXIfr" class="icon brands fa-facebook-f">
+									<span class="label">Facebook</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/create4orconservation/" class="icon brands fa-instagram">
+									<span class="label">Instagram</span>
+								</a>
+							</li>
+						</ul>
+						<p>Create for Conservation<br />
+						Student-Led Organization<br />
+						info@createforconservation.org</p>
+					</section>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div id="copyright">
+						<ul class="menu">
+							<li>&copy; Create for Conservation. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+</body>
+</html>
